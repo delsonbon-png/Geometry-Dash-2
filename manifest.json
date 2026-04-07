@@ -1,0 +1,17 @@
+{
+  "name": "Geometry Dash 2",
+  "short_name": "GD 2",
+  "description": "Geometry Dash 2 Web Game",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00f3ff",
+  "icons": [
+    {
+      "src": "./assets/chrome_icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
