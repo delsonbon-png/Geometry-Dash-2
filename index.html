@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Dash 2 - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Orbitron for that Sci-Fi/Neon look -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Background Animation Layers -->
+        <div class="bg-layer parallax-1" id="bg-grid"></div>
+        <div class="bg-layer parallax-2" id="bg-glow"></div>
+        <div class="bg-layer parallax-3" id="bg-particles"></div>
+
+        <!-- Home Screen -->
+        <main class="active-screen" id="home-screen">
+            <header class="logo-container">
+                <div class="cube-logo-wrapper">
+                    <img src="assets/cube_logo.png" alt="Geometry Dash 2 Logo" class="cube-logo">
+                </div>
+                <h1 class="game-logo">GEOMETRY<br><span class="accent">DASH 2</span></h1>
+                <div class="logo-glow"></div>
+            </header>
+
+            <section class="menu-actions">
+                <div class="main-buttons">
+                    <button id="btn-play" class="btn-primary" title="Play">
+                        <div class="icon play-icon"></div>
+                        <span>PLAY</span>
+                    </button>
+                    
+                    <div class="secondary-actions">
+                        <button id="btn-icons" class="btn-secondary" title="Character Select">
+                            <div class="icon char-icon"></div>
+                        </button>
+                        <button id="btn-levels" class="btn-secondary" title="Levels">
+                            <div class="icon levels-icon"></div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bottom-tools">
+                    <button class="btn-tool" id="btn-settings">
+                        <div class="icon settings-icon"></div>
+                    </button>
+                    <button class="btn-tool" id="btn-achievements">
+                        <div class="icon trophy-icon"></div>
+                    </button>
+                    <button class="btn-tool" id="btn-stats">
+                        <div class="icon stats-icon"></div>
+                    </button>
+                </div>
+            </section>
+
+            <footer class="game-info">
+                <p>VERSÃO 2.0.0 | BY ANTIGRAVITY AI</p>
+            </footer>
+        </main>
+
+        <!-- Character Select Screen -->
+        <section class="screen-hidden" id="character-select-screen">
+            <header class="screen-header">
+                <button id="btn-back-home-char" class="btn-back">
+                    <div class="icon back-icon"></div>
+                </button>
+                <h2 class="section-title">SELECT CHARACTER</h2>
+            </header>
+
+            <div class="level-carousel">
+                <div class="level-card char-card" data-color="#ff00c1" style="cursor: pointer; padding: 2rem;">
+                    <div style="width: 100px; height: 100px; background-color: #ff00c1; margin: 0 auto; box-shadow: 0 0 20px #ff00c1;"></div>
+                    <div class="level-info" style="text-align: center; margin-top: 1rem;">
+                        <h3 style="color: #ff00c1;">NEON PINK</h3>
+                        <span class="difficulty-tag" style="background:#ff00c1;">PLAYER 1</span>
+                    </div>
+                </div>
+
+                <div class="level-card char-card" data-color="#00f3ff" style="cursor: pointer; padding: 2rem;">
+                    <div style="width: 100px; height: 100px; background-color: #00f3ff; margin: 0 auto; box-shadow: 0 0 20px #00f3ff;"></div>
+                    <div class="level-info" style="text-align: center; margin-top: 1rem;">
+                        <h3 style="color: #00f3ff;">CYAN BLUE</h3>
+                        <span class="difficulty-tag" style="background:#00f3ff; color:black;">PLAYER 2</span>
+                    </div>
+                </div>
+
+                <div class="level-card char-card" data-color="#39ff14" style="cursor: pointer; padding: 2rem;">
+                    <div style="width: 100px; height: 100px; background-color: #39ff14; margin: 0 auto; box-shadow: 0 0 20px #39ff14;"></div>
+                    <div class="level-info" style="text-align: center; margin-top: 1rem;">
+                        <h3 style="color: #39ff14;">TOXIC GREEN</h3>
+                        <span class="difficulty-tag" style="background:#39ff14; color:black;">PLAYER 3</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level Select Screen -->
+        <section class="screen-hidden" id="level-select-screen">
+            <header class="screen-header">
+                <button id="btn-back-home" class="btn-back">
+                    <div class="icon back-icon"></div>
+                </button>
+                <h2 class="section-title">SELECT LEVEL</h2>
+            </header>
+
+            <div class="level-carousel">
+                <div class="level-card active-card" id="level-1-card">
+                    <div class="level-preview">
+                        <img src="assets/nebula_bg.png" alt="Level Preview" class="preview-img">
+                        <div class="level-overlay">
+                            <img src="assets/hard_icon.png" alt="Hard" class="difficulty-icon">
+                            <span class="difficulty-tag">HARD</span>
+                        </div>
+                    </div>
+                    <div class="level-info">
+                        <h3>1. NEON ASCENT</h3>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width: 0%"></div>
+                            <span class="progress-pct">0%</span>
+                        </div>
+                    </div>
+                    <button class="btn-level-play" id="btn-play-level-1">LET'S GO</button>
+                </div>
+                
+                <!-- More levels could be added here -->
+                <div class="level-card locked-card" id="level-2-card">
+                    <div class="level-preview">
+                        <div class="locked-overlay" id="level-2-lock">
+                            <div class="icon lock-icon"></div>
+                        </div>
+                    </div>
+                    <div class="level-info">
+                        <h3>2. CYBER PULSE</h3>
+                    </div>
+                    <button class="btn-level-play" id="btn-play-level-2" style="display: none;">LET'S GO</button>
+                </div>
+                
+                <!-- Create Custom Level Card -->
+                <div class="level-card active-card" id="card-create-level" style="border: 2px dashed var(--neon-cyan); background: rgba(0, 243, 255, 0.05); display: flex; align-items: center; justify-content: center; min-height: 250px; cursor: pointer;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3rem; color: var(--neon-cyan);">+</div>
+                        <h3 style="color: white; font-family: var(--font-heading);">CRIAR NÍVEL</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Level Editor / Custom Levels Screen -->
+        <section class="screen-hidden" id="level-editor-screen" style="flex-direction: column; height: 100vh; justify-content: flex-start; padding: 2rem; align-items: center; overflow-y: auto;">
+            <header class="screen-header" style="margin-bottom: 1rem; width: 100%; max-width: 800px;">
+                <button id="btn-back-editor" class="btn-back">
+                    <div class="icon back-icon"></div>
+                </button>
+                <h2 class="section-title">CONSTRUÇÃO DE OBSTÁCULOS</h2>
+            </header>
+
+            <div style="background: rgba(0, 0, 0, 0.5); padding: 1rem; border-radius: 10px; border: 1px solid var(--neon-cyan); width: 100%; max-width: 800px; display: flex; flex-direction: column; gap: 1rem;">
+                <h3 style="color: var(--neon-cyan); font-family: var(--font-heading);">1. SEQUÊNCIA DE OBSTÁCULOS</h3>
+                
+                <div id="editor-sequence" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem; min-height: 80px; align-items: center; border-bottom: 1px dashed rgba(255,255,255,0.2);">
+                    <!-- Chunks will appear here -->
+                </div>
+
+                <h3 style="color: var(--neon-pink); font-family: var(--font-heading);">2. PEÇAS DISPONÍVEIS</h3>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn-editor-tool" data-type="block" style="background: #222; border: 1px solid #00f3ff; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ BLOCO</button>
+                    <button class="btn-editor-tool" data-type="spike_1" style="background: #222; border: 1px solid #39ff14; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ ESPINHO</button>
+                    <button class="btn-editor-tool" data-type="spike_3" style="background: #222; border: 1px solid #39ff14; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ 3 ESPINHOS</button>
+                    <button class="btn-editor-tool" data-type="space" style="background: #222; border: 1px dashed #aaa; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ ESPAÇO</button>
+                    <button class="btn-editor-tool" data-type="portal" style="background: #222; border: 1px solid #ff8800; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ PORTAL</button>
+                    <button class="btn-editor-tool" data-type="ceiling_spike" style="background: #222; border: 1px solid #ff00c1; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ TETO: ESPINHO</button>
+                    <button class="btn-editor-tool" data-type="ceiling_block" style="background: #222; border: 1px solid #ff00c1; color: white; padding: 0.5rem 1rem; cursor: pointer; border-radius: 5px;">+ TETO: BLOCO</button>
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1rem;">
+                    <button id="btn-editor-clear" style="background: transparent; color: #ff3333; border: 1px solid #ff3333; padding: 0.8rem 2rem; border-radius: 8px; font-weight: bold; cursor: pointer;">LIMPAR</button>
+                    <button id="btn-editor-play" style="background: var(--grad-primary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 8px; font-family: var(--font-heading); font-weight: bold; cursor: pointer;">TESTAR / SALVAR</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Stage -->
+        <section class="screen-hidden" id="game-stage">
+            <div class="hud">
+                <div class="hud-top">
+                    <span id="attempt-counter">ATTEMPT 1</span>
+                    <div class="game-progress-container">
+                        <div class="game-progress-bar" id="level-progress"></div>
+                    </div>
+                    <span id="progress-text">0%</span>
+                </div>
+            </div>
+            <!-- Assets explicitly loaded for Canvas consumption -->
+            <div style="display:none;">
+                <img id="cube-img" src="assets/cube_logo.png" alt="Cube">
+                <img id="spike-img" src="assets/spike.png" alt="Spike">
+                <img id="block-img" src="assets/block.png" alt="Block">
+            </div>
+            <canvas id="game-canvas"></canvas>
+            
+            <div class="pause-menu screen-hidden" id="pause-menu">
+                <h2>PAUSED</h2>
+                <button class="btn-primary" id="btn-resume">RESUME</button>
+                <button class="btn-secondary" id="btn-quit" style="width:250px; margin-top:20px;">QUIT LEVEL</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
