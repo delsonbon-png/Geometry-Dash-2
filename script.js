@@ -159,6 +159,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Adicione alguns obstáculos primeiro!');
                 return;
             }
+            
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(e => console.log(e));
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen().catch(e => console.log(e));
+            }
+            
             showScreen(gameStageScreen);
             startGame(3); // Level 3 = Custom Level
         });
@@ -184,6 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const levelPlayBtns = document.querySelectorAll('.btn-level-play');
     levelPlayBtns.forEach(btn => {
         btn.addEventListener('click', () => {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen().catch(e => console.log(e));
+            } else if (document.documentElement.webkitRequestFullscreen) {
+                document.documentElement.webkitRequestFullscreen().catch(e => console.log(e));
+            }
             showScreen(gameStageScreen);
             const level = btn.id === 'btn-play-level-2' ? 2 : 1;
             startGame(level);
@@ -280,10 +292,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         resize() {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
+            // Utiliza uma altura lógica de 600px para que o jogo não pareça "muito perto" em telas horizontais
+            const logicalHeight = 600;
+            const aspectRatio = window.innerWidth / window.innerHeight;
+            
+            this.canvas.width = logicalHeight * aspectRatio;
+            this.canvas.height = logicalHeight;
+            
             this.groundY = this.canvas.height - 100;
             this.ceilingY = 100;
+            
+            // O CSS cuida de esticar o canvas na tela inteira
+            this.canvas.style.width = '100vw';
+            this.canvas.style.height = '100vh';
         }
         
         resetState() {
